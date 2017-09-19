@@ -53,3 +53,11 @@ shinsei = Bankscrap::Shinsei::Bank.new(account: ACCOUNT_NUMBER, password: PASSWO
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create a new Pull Request
+
+## Credits
+
+[shinseibank-ruby](https://github.com/binzume/shinseibank-ruby) original scripts
+were written by [@binzume](https://github.com/binzume), then [improved and
+refactored to make a gem](https://github.com/knshiro/shinseibank-ruby) by
+[@knshiro](https://github.com/knshiro) and
+[@davidstosik](https://github.com/davidstosik).
