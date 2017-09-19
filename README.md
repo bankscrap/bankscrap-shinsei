@@ -2,8 +2,8 @@
 
 [Bankscrap](https://github.com/bankscrap/bankscrap) adapter for Shinsei.
 
-**TODO**: write a proper description for your adapter.
-
+This adapter uses the Shinsei PowerDirect web interface and scraps Javascript
+global variable values to get its data.
 
 ## Installation
 
@@ -26,12 +26,14 @@ Or install it yourself as:
 ### From terminal
 #### Bank account balance
 
-    $ bankscrap balance Shinsei --credentials=user:YOUR_USER --password:YOUR_PASSWORD --any_other_credential:ANY_OTHER_CREDENTIAL
-
+    $ bankscrap balance Shinsei --credentials=account:ACCOUNT_NUMBER password:PASSWORD pin:PIN security_grid=SECURITY_GRID
 
 #### Transactions
 
-    $ bankscrap transactions Shinsei --credentials=user:YOUR_USER --password:YOUR_PASSWORD --any_other_credential:ANY_OTHER_CREDENTIAL
+    $ bankscrap transactions Shinsei --credentials=account:ACCOUNT_NUMBER password:PASSWORD pin:PIN security_grid:SECURITY_GRID
+
+`SECURITY_GRID` must be provided in the format of lines, separated by commas.
+Example:`1234567890,ABCDFEFGHI,JKLMNOPQRS,TUVWXYZ123`
 
 ---
 
@@ -41,9 +43,8 @@ For more details on usage instructions please read [Bankscrap readme](https://gi
 
 ```ruby
 require 'bankscrap-shinsei'
-shinsei = Bankscrap::Shinsei::Bank.new(user: YOUR_USER, password: YOUR_PASSWORD, any_other_credential: ANY_OTHER_CREDENTIAL)
+shinsei = Bankscrap::Shinsei::Bank.new(account: ACCOUNT_NUMBER, password: PASSWORD, pin: PIN, security_grid: SECURITY_GRID)
 ```
-
 
 ## Contributing
 
