@@ -6,8 +6,8 @@ require 'bankscrap/shinsei/version'
 Gem::Specification.new do |spec|
   spec.name          = 'bankscrap-shinsei'
   spec.version       = Bankscrap::Shinsei::VERSION
-  spec.authors       = ['Your Name']
-  spec.email         = ['your@email.com']
+  spec.authors       = ['David Stosik']
+  spec.email         = ['david.stosik+git-noreply@gmail.com']
   spec.summary       = 'Shinsei adapter for Bankscrap'
   spec.homepage      = ''
   spec.license       = 'MIT'
