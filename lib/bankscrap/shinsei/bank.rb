@@ -1,0 +1,85 @@
+require 'bankscrap'
+require 'securerandom'
+
+module Bankscrap
+  module Shinsei
+    class Bank < ::Bankscrap::Bank
+
+      # Define the endpoints for the Bank API here
+      # BASE_ENDPOINT         = 'https://api.mybank.com'.freeze
+      # LOGIN_ENDPOINT        = '/login'.freeze
+      # ACCOUNTS_ENDPOINT     = '/accounts'.freeze
+      # TRANSACTIONS_ENDPOINT = '/transactions'.freeze
+
+      # TODO: change this for the proper credentials required in your adapter.
+      # It can be anything (user, birthday, ID, whatever you need).
+      REQUIRED_CREDENTIALS  = %i(user password any_other_credential).freeze
+
+      def initialize(credentials = {})
+        super do
+          # Here you can do further processing of the received credentials
+          # or add custom headers to the HTTP client
+
+          # user_agent = SecureRandom.hex(32).upcase + ';Android;LGE;Nexus 5;1080x1776;Android;5.1.1;BMES;4.4;xxhd'
+          # add_headers('User-Agent' => user_agent)
+        end
+      end
+
+      # Fetch all the accounts for the given user
+      #
+      # Should returns an array of Bankscrap::Account objects
+      def fetch_accounts
+        # Example if the API expects a JSON POST request
+        # response = post(BASE_ENDPOINT + ACCOUNTS_ENDPOINT, fields: {}.to_json)
+        # json = JSON.parse(response)
+        # json['accounts'].map { |data| build_account(data) }
+      end
+
+      # Fetch transactions for the given account.
+      #
+      # Account should be a Bankscrap::Account object
+      # Should returns an array of Bankscrap::Account objects
+      def fetch_transactions_for(account, start_date: Date.today - 1.month, end_date: Date.today)
+        # Example if the API expects a JSON POST request
+        # response = post(BASE_ENDPOINT + TRANSACTIONS_ENDPOINT, fields: {}.to_json)
+        # json = JSON.parse(response)
+        # json['transactions'].map { |data| build_transaction(data, account) }
+      end
+
+      private
+
+      # First request to login
+      def login
+        # Example if the API expects a JSON POST request
+        # params = { user: @user, password: @password }
+        # post(BASE_ENDPOINT + LOGIN_ENDPOINT, fields: params.to_json)
+      end
+
+      # Build an Account object from API data
+      def build_account(data)
+        Account.new(
+          bank: self,
+          id: REPLACE_ME,
+          name: REPLACE_ME,
+          available_balance: REPLACE_ME,
+          balance: REPLACE_ME,
+          iban: REPLACE_ME,
+          description: REPLACE_ME
+        )
+      end
+
+      # Build a transaction object from API data
+      def build_transaction(data, account)
+        Transaction.new(
+          account: account,
+          id: REPLACE_ME,
+          amount: REPLACE_ME, # Should be a Money object
+          description: REPLACE_ME,
+          effective_date: REPLACE_ME,
+          operation_date: REPLACE_ME,
+          balance: REPLACE_ME  # Should be a Money object
+        )
+      end
+    end
+  end
+end
