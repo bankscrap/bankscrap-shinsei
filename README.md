@@ -5,6 +5,8 @@
 This adapter uses the Shinsei PowerDirect web interface and scraps Javascript
 global variable values to get its data.
 
+Contact: open an issue or email us at bankscrap@protonmail.com.
+
 ## Installation
 
 Add this line to your application's Gemfile:
